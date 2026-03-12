@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conway's Game of Life</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="app">
+
+    <header class="app-header">
+      <h1>Conway's Game of Life</h1>
+      <div class="gen-display">
+        Generation&nbsp;<span id="gen-counter">0</span>
+      </div>
+    </header>
+
+    <div class="toolbar">
+
+      <!-- Playback -->
+      <div class="control-group">
+        <button id="btn-play"  class="btn btn-primary">&#9654; Play</button>
+        <button id="btn-step"  class="btn">&#9197; Step</button>
+        <button id="btn-reset" class="btn">&#8635; Reset</button>
+      </div>
+
+      <div class="toolbar-divider"></div>
+
+      <!-- Speed -->
+      <div class="control-group">
+        <label for="speed-select">Speed</label>
+        <select id="speed-select">
+          <option value="2">Slow (2 fps)</option>
+          <option value="10" selected>Normal (10 fps)</option>
+          <option value="30">Fast (30 fps)</option>
+          <option value="60">Turbo (60 fps)</option>
+        </select>
+      </div>
+
+      <div class="toolbar-divider"></div>
+
+      <!-- Grid size -->
+      <div class="control-group">
+        <label for="size-select">Grid</label>
+        <select id="size-select">
+          <option value="20x20">20 &times; 20</option>
+          <option value="50x50" selected>50 &times; 50</option>
+          <option value="100x100">100 &times; 100</option>
+          <option value="200x200">200 &times; 200</option>
+          <option value="custom">Custom&hellip;</option>
+        </select>
+        <span id="custom-size-inputs" class="hidden">
+          <input type="number" id="custom-rows" min="5" max="500" placeholder="Rows" value="50" />
+          <span class="dim-x">&times;</span>
+          <input type="number" id="custom-cols" min="5" max="500" placeholder="Cols" value="50" />
+          <button id="btn-apply-size" class="btn btn-sm">Apply</button>
+        </span>
+      </div>
+
+      <div class="toolbar-divider"></div>
+
+      <!-- Presets -->
+      <div class="control-group">
+        <label for="preset-select">Preset</label>
+        <select id="preset-select">
+          <option value="">&#8212; choose &#8212;</option>
+          <option value="glider">Glider</option>
+          <option value="blinker">Blinker</option>
+          <option value="rpentomino">R-pentomino</option>
+          <option value="pulsar">Pulsar</option>
+          <option value="gosper">Gosper Glider Gun</option>
+        </select>
+      </div>
+
+    </div><!-- /.toolbar -->
+
+    <main class="canvas-wrap">
+      <canvas id="game-canvas"></canvas>
+    </main>
+
+    <footer class="app-footer">
+      <span id="footer-hint">Click or drag to paint cells &bull; Painting active when paused</span>
+    </footer>
+
+  </div><!-- /.app -->
+
+  <script type="module" src="main.js"></script>
+</body>
+</html>
